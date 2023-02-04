@@ -72,6 +72,7 @@ void updateDisplay()
         if (String(receivedChars[14]) != "0") 
         {
           display.print(String(receivedChars[14]));
+          tempCoffee = receivedChars[14];
         }
         display.print(String(receivedChars[15]));
         display.print(String(receivedChars[16]));
@@ -89,6 +90,7 @@ void updateDisplay()
         if (String(receivedChars[6]) != "0") 
         {
           display.print(String(receivedChars[6]));
+          tempSteam = receivedChars[14];
         }
         display.print(String(receivedChars[7]));
         display.print(String(receivedChars[8]));

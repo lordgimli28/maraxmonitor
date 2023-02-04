@@ -15,11 +15,25 @@
     long timerStopMillis = 0;
     long timerDisplayOffMillis = 0;
     long serialUpdateMillis = 0;
+    // 0 = pump on 1 = pump off
     int pumpInValue = 0;
+    int tempSteam = 0;
+    int tempCoffee = 0;
 
     const byte numChars = 32;
     char receivedChars[numChars];
     static byte ndx = 0;
     char endMarker = '\n';
     char rc;
+
+    const char* ssid     = "REPLACE_WITH_YOUR_SSID";
+    const char* password = "REPLACE_WITH_YOUR_PASSWORD";
+
+    // Create AsyncWebServer object on port 80
+    AsyncWebServer server(80);
+
+    // Create an Event Source on /events
+    AsyncEventSource events("/events");
+
+
 #endif
