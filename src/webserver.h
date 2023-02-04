@@ -35,10 +35,10 @@ const char index_html[] PROGMEM = R"rawliteral(
   <div class="content">
     <div class="cards">
       <div class="card">
-        <p><i class="fas fa-thermometer-half" style="color:#059e8a;"></i> COFFEETEMPERATURE</p><p><span class="reading"><span id="cofftemp">%COFFEETEMPERATURE%</span> &deg;C</span></p>
+        <p><i class="fas fa-thermometer-half" style="color:#059e8a;"></i> COFFEETEMPERATURE</p><p><span class="reading"><span id="temp">%COFFEETEMPERATURE%</span> &deg;C</span></p>
       </div>
       <div class="card">
-        <p><i class="fas fa-thermometer-half" style="color:#00add6;"></i> STEAMTEMPERATURE</p><p><span class="reading"><span id="steamtemp">%STEAMTEMPERATURE%</span> &deg;C</span></p>
+        <p><i class="fas fa-thermometer-half" style="color:#00add6;"></i> STEAMTEMPERATURE</p><p><span class="reading"><span id="hum">%STEAMTEMPERATURE%</span> &deg;C</span></p>
       </div>
     </div>
   </div>
@@ -61,12 +61,12 @@ if (!!window.EventSource) {
  
  source.addEventListener('tempCoffee', function(e) {
   console.log("tempCoffee", e.data);
-  document.getElementById("coffetemp").innerHTML = e.data;
+  document.getElementById("temp").innerHTML = e.data;
  }, false);
  
  source.addEventListener('tempSteam', function(e) {
   console.log("tempSteam", e.data);
-  document.getElementById("steamtemp").innerHTML = e.data;
+  document.getElementById("hum").innerHTML = e.data;
  }, false);
  
 }
@@ -106,8 +106,8 @@ void handleWebServer()
 
 void loopWebServer()
 {
-    //Serial.printf("CoffeeTemperature = %.2f ºC \n", tempCoffee);
-    //Serial.printf("SteamTemperature = %.2f \n", tempSteam);
+    Serial.printf("CoffeeTemperature = %.2f ºC \n", tempCoffee);
+    Serial.printf("SteamTemperature = %.2f \n", tempSteam);
     Serial.println();
 
     // Send Events to the Web Server with the Sensor Readings
