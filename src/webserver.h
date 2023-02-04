@@ -52,7 +52,7 @@ const char index_html[] PROGMEM = R"rawliteral(
 </head>
 <body>
   <div class="topnav">
-    <h1>BME280 WEB SERVER (SSE)</h1>
+    <h1>LELIT MARA X WEBSERVER</h1>
   </div>
   <div class="content">
     <div class="cards">
