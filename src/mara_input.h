@@ -47,6 +47,7 @@ void detectChanges()
     pumpInValue = 1;
     Serial.println("pump off");
   }
+  
   if (!timerStarted && !pumpInValue) 
   {
     timerStartMillis = millis();
