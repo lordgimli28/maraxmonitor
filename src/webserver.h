@@ -38,7 +38,7 @@ const char index_html[] PROGMEM = R"rawliteral(
         <p><i class="fas fa-thermometer-half" style="color:#059e8a;"></i> COFFEETEMPERATURE</p><p><span class="reading"><span id="temp">%COFFEETEMPERATURE%</span> &deg;C</span></p>
       </div>
       <div class="card">
-        <p><i class="fas fa-tint" style="color:#00add6;"></i> STEAMTEMPERATURE</p><p><span class="reading"><span id="hum">%STEAMTEMPERATURE%</span> &percnt;</span></p>
+        <p><i class="fas fa-thermometer-half" style="color:#00add6;"></i> STEAMTEMPERATURE</p><p><span class="reading"><span id="hum">%STEAMTEMPERATURE%</span> &deg;C</span></p>
       </div>
     </div>
   </div>

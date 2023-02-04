@@ -72,11 +72,12 @@ void updateDisplay()
         if (String(receivedChars[14]) != "0") 
         {
           display.print(String(receivedChars[14]));
-          tempCoffee = receivedChars[14];
+          
         }
         display.print(String(receivedChars[15]));
         display.print(String(receivedChars[16]));
         display.print((char)247);
+        tempCoffee = receivedChars[14] && receivedChars[15] && receivedChars[16];
         if (String(receivedChars[14]) == "0") 
         {
           display.print("C");
@@ -90,12 +91,13 @@ void updateDisplay()
         if (String(receivedChars[6]) != "0") 
         {
           display.print(String(receivedChars[6]));
-          tempSteam = receivedChars[14];
+          
         }
         display.print(String(receivedChars[7]));
         display.print(String(receivedChars[8]));
         display.print((char)247);
         display.print("C");
+        tempSteam = receivedChars[6] && receivedChars[7] && receivedChars[8];
       }
     }
   }
