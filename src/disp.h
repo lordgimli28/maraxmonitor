@@ -1,6 +1,27 @@
 #ifndef DISP_H
 #define DISP_H
 
+int parseCharToTemp(int arg_start, char arg_test[numChars])
+{
+    int loc_first= 0;
+    int loc_second = 0;
+    int loc_third = 0;
+
+    if((int)arg_test[arg_start]>=48)
+    {
+        loc_first= ((int)arg_test[arg_start]-48)*100;
+    }
+    if((int)arg_test[arg_start+1]>=48)
+    {
+        loc_second= ((int)arg_test[arg_start+1]-48)*10;
+    }
+    if((int)arg_test[arg_start+2]>=48)
+    {
+        loc_third= (int)arg_test[arg_start+2]-48;
+    }
+    return loc_first+loc_second+loc_third;
+}
+
 void updateDisplay() 
 {
   display.clearDisplay();
@@ -77,7 +98,7 @@ void updateDisplay()
         display.print(String(receivedChars[15]));
         display.print(String(receivedChars[16]));
         display.print((char)247);
-        tempCoffee = receivedChars[14] + receivedChars[15] + receivedChars[16];
+        tempCoffee = parseCharToTemp(14, receivedChars);
         if (String(receivedChars[14]) == "0") 
         {
           display.print("C");
@@ -97,7 +118,7 @@ void updateDisplay()
         display.print(String(receivedChars[8]));
         display.print((char)247);
         display.print("C");
-        tempSteam = receivedChars[6] + receivedChars[7] + receivedChars[8];
+        tempSteam = parseCharToTemp(6, receivedChars);
       }
     }
   }
