@@ -1,10 +1,32 @@
+int parseCharToTemp(int arg_start, char arg_test[numChars])
+{
+    int loc_first= 0;
+    int loc_second = 0;
+    int loc_third = 0;
+
+    if((int)arg_test[arg_start]>=48)
+    {
+        loc_first= ((int)arg_test[arg_start]-48)*100;
+    }
+    if((int)arg_test[arg_start+1]>=48)
+    {
+        loc_second= ((int)arg_test[arg_start+1]-48)*10;
+    }
+    if((int)arg_test[arg_start+2]>=48)
+    {
+        loc_third= (int)arg_test[arg_start+2]-48;
+    }
+    return loc_first+loc_second+loc_third;
+}
 
 String processor(const String& var){
   //Serial.println(var);
   if(var == "COFFEETEMPERATURE"){
+    tempCoffee = parseCharToTemp(14, receivedChars);
     return String(tempCoffee);
   }
   else if(var == "STEAMTEMPERATURE"){
+    tempSteam = parseCharToTemp(6, receivedChars);
     return String(tempSteam);
   }
   return String();
