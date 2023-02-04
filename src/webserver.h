@@ -129,8 +129,7 @@ void handleWebServer()
 void loopWebServer()
 {
 
-    Serial.printf("CoffeeTemperature = %.2f ºC \n", tempCoffee);
-    Serial.printf("SteamTemperature = %.2f ºC \n", tempSteam);
+
     Serial.println();
 
     // Send Events to the Web Server with the Sensor Readings
