@@ -36,4 +36,33 @@
     AsyncEventSource events("/events");
 
 
+    // Set your Static IP address
+    IPAddress local_IP(REPLACE);
+    // Set your Gateway IP address
+    IPAddress gateway(REPLACE);
+
+    IPAddress subnet(REPLACE);
+    IPAddress primaryDNS(REPLACE);   //optional
+    IPAddress secondaryDNS(REPLACE); //optional
+
+ 
+    // for mqtt
+
+    WiFiClient wifiClient;
+
+    int        mqtt_port     = 0;
+    IPAddress mqtt_broker(REPLACE);
+
+    const char* mqttUser = "";
+    const char* mqttPassword = "";
+
+    char config_buffer[512];
+    DynamicJsonDocument config_doc(1024);
+
+    const long interval = 10000;
+    unsigned long previousMillis = 0;
+
+    String mqtt_clientId = "MaraXClient" + String(random(0xffff), HEX);
+    //mqtt_clientId += String(random(0xffff), HEX);
+
 #endif

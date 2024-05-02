@@ -97,6 +97,9 @@ if (!!window.EventSource) {
 </html>)rawliteral";
 
 void initWiFi() {
+  if (!WiFi.config(local_IP, gateway, subnet, primaryDNS, secondaryDNS)) {
+    Serial.println("STA Failed to configure");
+  }
     WiFi.mode(WIFI_STA);
     WiFi.begin(ssid, password);
     Serial.print("Connecting to WiFi ..");

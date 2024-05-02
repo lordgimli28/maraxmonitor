@@ -6,11 +6,14 @@
 #include <SoftwareSerial.h>
 #include <ESPAsyncTCP.h>
 #include <ESPAsyncWebServer.h>
+#include <PubSubClient.h>
+#include <ArduinoJson.h>
 
 #include "global_defines.h"
 #include "mara_input.h"
 #include "disp.h"
 #include "webserver.h"
+#include "mqtt.h"
 
 void updateLoop(){
   updateDisplay();
@@ -19,7 +22,7 @@ void updateLoop(){
 
 void setup() {
   initWiFi();
-
+  setup_mqtt();
   setup_input();
 
   t.every(100, updateLoop);
@@ -37,4 +40,5 @@ void loop() {
   t.update();
   detectChanges();
   getMachineInput();
+  update_mqtt();
 }

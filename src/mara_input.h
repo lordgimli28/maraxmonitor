@@ -21,14 +21,14 @@
       {
         receivedChars[ndx] = '\0';
         ndx = 0;
-        Serial.println(receivedChars);
+        //Serial.println(receivedChars);
       }
     }
     if (millis() - serialUpdateMillis > 5000) 
     {
       serialUpdateMillis = millis();
       memset(receivedChars, 0, numChars);
-      Serial.println("Request serial update");
+      //Serial.println("Request serial update");
       mySerial.write(0x11);
     }
 }
@@ -36,16 +36,16 @@
 void detectChanges() 
 {
   pumpInValue = 1;
-  Serial.println(receivedChars);
+  //Serial.println(receivedChars);
   if (String(receivedChars[25]) == "1") 
   {
     pumpInValue = 0;
-    Serial.println("pump on");
+    //Serial.println("pump on");
   }
   else
   {
     pumpInValue = 1;
-    Serial.println("pump off");
+    //Serial.println("pump off");
   }
   
   if (!timerStarted && !pumpInValue) 
@@ -53,7 +53,7 @@ void detectChanges()
     timerStartMillis = millis();
     timerStarted = true;
     displayOn = true;
-    Serial.println("Start pump");
+    //Serial.println("Start pump");
   }
   if (timerStarted && pumpInValue) 
   {
@@ -67,7 +67,7 @@ void detectChanges()
       timerStopMillis = 0;
       timerDisplayOffMillis = millis();
       display.invertDisplay(false);
-      Serial.println("Stop pump");
+      //Serial.println("Stop pump");
     }
   } 
   else 
@@ -80,7 +80,7 @@ void detectChanges()
     timerCount = 0;
     prevTimerCount = 0;
     displayOn = false;
-    Serial.println("Sleep");
+    //Serial.println("Sleep");
   }
 }
 
