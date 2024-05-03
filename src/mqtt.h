@@ -72,7 +72,7 @@ void update_mqtt()
 
     sendDiscoveryMessage("MaraX/sensor/temp_steam", "SteamTemp", "temperature", "C", "8e65a01b-8b4d-4dc3-a98c-3e7f3441ad0a");
     sendDiscoveryMessage("MaraX/sensor/temp_coffee", "CoffeeTemp", "temperature", "C", "85e45268-3306-4567-bec0-9c7b33547281");
-
+    //Serial.println(String(tempSteam).c_str());
     mqttClient.publish("MaraX/sensor/temp_steam", String(tempSteam).c_str());
     mqttClient.publish("MaraX/sensor/temp_coffee", String(tempCoffee).c_str());
 

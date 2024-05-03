@@ -22,11 +22,11 @@ int parseCharToTemp(int arg_start, char arg_test[numChars])
 String processor(const String& var){
   //Serial.println(var);
   if(var == "COFFEETEMPERATURE"){
-    tempCoffee = parseCharToTemp(14, receivedChars);
+    //tempCoffee = parseCharToTemp(14, receivedChars);
     return String(tempCoffee);
   }
   else if(var == "STEAMTEMPERATURE"){
-    tempSteam = parseCharToTemp(6, receivedChars);
+    //tempSteam = parseCharToTemp(6, receivedChars);
     return String(tempSteam);
   }
   return String();

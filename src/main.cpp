@@ -16,6 +16,8 @@
 #include "mqtt.h"
 
 void updateLoop(){
+  tempCoffee = parseCharToTemp(14, receivedChars);
+  tempSteam = parseCharToTemp(6, receivedChars);
   updateDisplay();
   loopWebServer();
 }
